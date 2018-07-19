@@ -1,0 +1,40 @@
+<div class="main-background {{defineDevice()}}">
+
+  <div ng-hide="defineDevice() == 'mobile'">
+    <img src='images/templates/home/caneta-frente.png' alt="" class="caneta-frente">
+    <img src='images/templates/home/caneta-fundo.png' alt="" class="caneta-fundo">
+    <img src='images/templates/home/grafismo-center.png' alt="" class="grafismo-center">
+    <img src='images/templates/home/grafismo-left.png' alt="" class="grafismo-left">
+    <img src='images/templates/home/grafismo-right.png' alt="" class="grafismo-right">
+    <img src='images/templates/home/tampa-azul.png' alt="" class="tampa-azul">
+    <img src='images/templates/home/tampa-vermelha.png' alt="" class="tampa-vermelha">
+  </div>
+</div>
+
+<div class="content fixed {{defineDevice()}}">
+  <h1>Crie a sua Caneta BIC  e reinvente-se</h1>
+  <div teste></div>
+  <div class="persons {{defineDevice()}}">
+    <div>
+      <span class="blogger intro cid" data-blogger="cid"></span>
+      <span class="blogger loop cid" data-blogger="cid"></span>
+      <span class="blogger action cid" data-blogger="cid"></span>
+    </div>
+    <div>
+      <span class="blogger intro pc" data-blogger="cid"></span>
+      <span class="blogger loop pc" data-blogger="cid"></span>
+      <span class="blogger action pc" data-blogger="cid"></span>
+    </div>
+    <div>
+      <span class="blogger intro kefera" data-blogger="cid"></span>
+      <span class="blogger loop kefera" data-blogger="cid"></span>
+      <span class="blogger action kefera" data-blogger="cid"></span>
+    </div>
+  </div>
+  <div class="inner {{defineDevice()}}">
+    <p>Faça uma caneta BIC <sup>®</sup> só sua e vá curtir na França.<br/>
+    <em>Monte uma caneta com a sua cara, escolha quem você quer levar <br/>e peça pra galera votar.</em></p>
+    <a ng-href="#/crie-sua-bic"  class="bt default yellow" ng-click="changeRoute('/crie-sua-bic', $event)">faca-ja a sua</a>
+  </div>
+  <div class="bg-white {{defineDevice()}}"></div>
+</div>

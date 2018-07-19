@@ -1,0 +1,262 @@
+<div class="bg-mobile" ng-if="step == 'poll' && defineDevice() == 'mobile'" ></div>
+
+<div class="main-background {{defineDevice()}}">
+<!-- left -->
+<img src="images/templates/cadastro/bg-left-1.png" alt="" class="left-1"> 
+<img src="images/templates/cadastro/bg-left-2.png" alt="" class="left-2"> 
+<!-- / -->
+
+<!-- right -->
+<img src="images/templates/cadastro/bg-right-3.png" alt="" class="right-3">
+<img src="images/templates/cadastro/bg-right-2.png" alt="" class="right-2">
+<img src="images/templates/cadastro/bg-right-1.png" alt="" class="right-1">
+<!-- / -->
+
+</div>
+   
+
+
+<div class="content fixed {{defineDevice()}}" ng-class="fixedClass">
+  <a ng-click="onClickBack($event)" class="bt back {{defineDevice()}}" ng-hide="step == 'share'"></a>
+  <div class="sidebar {{defineDevice()}}">
+    <ul class="{{defineDevice()}}">
+      <li ng-class="{active: step == 'poll'}" class="{{defineDevice()}}">
+        <span class="ic-number">1</span>
+        <span class="icon ic-circle"></span>
+        <span class="label {{defineDevice()}}">Vote no seu <br/>bloqueiro favorito</span>
+      </li>
+      <li ng-class="{active: step == 'cadastre'}" class="{{defineDevice()}}">
+        <span class="ic-number">2</span>
+        <span class="icon ic-circle"></span>
+        
+        <span class="label {{defineDevice()}}">Cadastre-se</span>
+      </li>
+      <li ng-class="{active: step == 'share'}" class="{{defineDevice()}}">
+        <span class="ic-number">3</span>
+        <span class="icon ic-circle"></span>
+        <span class="label {{defineDevice()}}">Compartilhar</span>
+      </li>
+    </ul>
+  </div>
+  <!-- poll -->
+  <div class="wrap-poll {{defineDevice()}}" ng-show="step == 'poll'">
+    
+    <div class="{{defineDevice()}} inner poll" id="container-slide">
+      <article class="box cid {{defineDevice()}}" data-blogger="cid">
+          <span class="blogger intro cid {{defineDevice()}}" data-frames="15"></span>
+          <img src="images/persons/caneta/cid.png" alt="" class="pen {{defineDevice()}}"> 
+          <div class="infos">
+            <h2 class="{{defineDevice()}}">Cid</h2>
+            <p>
+              <a class="bt radio">
+                <span></span>
+              </a>
+            </p>
+          </div>
+        
+      </article>
+      <article class="box pc {{defineDevice()}}" data-blogger="pc">
+          <span class="blogger intro pc {{defineDevice()}}" data-frames="15"></span>
+          
+          <img src="images/persons/caneta/pc.png" alt="" class="pen {{defineDevice()}}"> 
+          <div class="infos">
+            <h2 class="{{defineDevice()}}">Pc Siqueira</h2>
+            <p>
+              <a class="bt radio">
+                <span></span>
+              </a>
+            </p>
+          </div>
+      </article>
+      <article class="box kefera {{defineDevice()}}" data-blogger="kefera">
+          <span class="blogger intro kefera {{defineDevice()}}" data-frames="15"></span>
+
+          <img src="images/persons/caneta/kefera.png" alt="" class="pen {{defineDevice()}}"> 
+          <div class="infos">
+            <h2 class="{{defineDevice()}}">Kéfera</h2>
+            <p>
+              <a class="bt radio">
+                <span></span>
+              </a>
+            </p>
+          </div>
+      </article>
+      <!-- changeView -->
+    </div>
+    <ul class="subnav" ng-show="defineDevice() == 'mobile'">
+      <li>
+        <a ng-click="clickSubNav('0')" class="active"></a>
+      </li>
+      <li>
+        <a ng-click="clickSubNav('1')"></a>
+      </li>
+      <li>
+        <a ng-click="clickSubNav('2')"></a>
+      </li>
+    </ul>
+    <a class="bt default large white {{defineDevice()}}" id="next-poll" ng-click="changeView('cadastre', 'social')">próximo</a> 
+  </div>
+  <!-- poll -->
+  <!-- cadastre -->
+  <div class="{{defineDevice()}} inner cadastre social-connect" ng-show="step == 'cadastre'">
+    <div class="blogger pc small" data-frames="15" ng-hide="defineDevice() == 'mobile'"></div>  
+    <div class="torre-eiffel" data-frames="25" ng-hide="defineDevice() == 'mobile'"></div>
+    <!-- social-connect -->
+    <div class="social-connect" ng-show="subStep == 'social'">
+      <div class="wrap-title {{defineDevice()}}">
+        <p><strong>Ótimo,  falta pouco!</strong></p>
+        <p class="small">Agora precisamos de algumas informações, vamos lá.</p>  
+      </div>
+      <div class="wrap-buttons {{defineDevice()}}">
+        <a class="bt facebook connect" ng-click="connectSocial('facebook')">
+          <span class="icon"></span>
+          <span class="line"></span>
+          conectar
+        </a>
+        <a class="bt twitter connect" ng-click="connectSocial('twitter')">
+          <span class="icon"></span>
+          <span class="line"></span>
+          conectar
+        </a>
+        <a class="bt gplus connect" ng-click="connectSocial('google')">
+          <span class="icon"></span>
+          <span class="line"></span>
+          conectar
+        </a> 
+        <span class="icon ic-ou"></span>
+        <a class="bt default white" id="next-social" ng-click="changeView('cadastre', 'form')">cadastre-se</a> 
+      </div>  
+    </div>
+    <!-- form -->
+    <!-- form -->
+      <div class="form {{defineDevice()}}" ng-show="subStep == 'form'">
+        <div class="wrap-title {{defineDevice()}}">
+          <p><strong>Para chegar até aqui, você já está a frente de muitos!</strong></p>
+          <p>Precisamos só de algumas informações importantes, para finalizar seu cadastro.</p>  
+        </div>
+        <form action="#" id="cadastre-form" class="cadastre-form {{defineDevice()}}" form-cadastre>
+          <div class="row {{defineDevice()}}">
+            <span class="icon ic-asterisco"></span>
+            <input type="text" name="nome" placeholder="Nome" class="large required" ng-model="user.name" data-validate="text">  
+          </div>
+          <div class="row {{defineDevice()}}">
+            <span class="icon ic-asterisco"></span>
+            <input type="text" name="email" placeholder="Email" class="large required" ng-model="user.email" data-validate="email">
+          </div>
+          <div class="row {{defineDevice()}}">
+            <div class="column">
+              <span class="icon ic-asterisco"></span>
+              <input type="text" name="cpf" class="small required" placeholder="CPF" ng-model="user.cpf" data-validate="cpf"/>
+              <!-- <input type="text" name="cpf" placeholder="CPF"  ng-model="cpf" ng-cpf ui-mask="999.999.999-99">   -->
+            </div>
+            <div class="column">
+              <span class="icon ic-asterisco"></span>
+              <input type="text" name="cep" placeholder="CEP" class="small required" ng-model="user.zip_code" data-validate="cep">
+            </div>
+          </div>
+          <div class="row {{defineDevice()}}">
+            <span class="icon ic-asterisco"></span>
+            <input type="text" name="address" placeholder="Endereco" class="required" ng-model="user.address" data-validate="text">  
+          </div>
+          <div class="row {{defineDevice()}}">
+            <div class="column">
+              <span class="icon ic-asterisco"></span>
+              <input type="text" name="number" placeholder="Número" class="required" ng-model="user.num" data-validate="number">
+            </div>
+            <div class="column">
+              <span class="icon ic-asterisco"></span>
+              <input type="text" name="phone" placeholder="Telefone" class="required" ng-model="user.phone" data-validate="phone">
+            </div>
+          </div>
+          <div class="row {{defineDevice()}}">
+            <div class="column">
+
+              <input type="text" name="complement" ng-model="user.complement" placeholder="Complemento">
+            </div>
+            <div class="column">
+              <span class="icon ic-asterisco"></span>
+              <input type="text" name="district" placeholder="Bairro" ng-model="user.neighborhood" class="required" data-validate="text">
+            </div>
+          </div>
+          <div class="row {{defineDevice()}}">
+            <div class="column">
+              <span class="icon ic-asterisco"></span>
+              <input type="text" name="city" placeholder="Cidade" class="required" ng-model="user.city" data-validate="text">
+            </div>
+            <div class="column">
+              <span class="icon ic-asterisco state"></span>
+              <select id="sel-state" name="state" class="required" data-validate="state" ng-model="user.state">
+                <option value="-">Estado</option>
+                <option value="ac" >AC</option>
+                <option value="al" >AL</option>
+                <option value="am" >AM</option>
+                <option value="ap" >AP</option>
+                <option value="ba" >BA</option>
+                <option value="ce" >CE</option>
+                <option value="df" >DF</option>
+                <option value="es" >ES</option>
+                <option value="go" >GO</option>
+                <option value="ma" >MA</option>
+                <option value="mg" >MG</option>
+                <option value="ms" >MS</option>
+                <option value="mt" >MT</option>
+                <option value="pa" >PA</option>
+                <option value="pb" >PB</option>
+                <option value="pe" >PE</option>
+                <option value="pi" >PI</option>
+                <option value="pr" >PR</option>
+                <option value="rj" >RJ</option>
+                <option value="rn" >RN</option>
+                <option value="ro" >RO</option>
+                <option value="rr" >RR</option>
+                <option value="rs" >RS</option>
+                <option value="sc" >SC</option>
+                <option value="se" >SE</option>
+                <option value="sp" >SP</option>
+                <option value="to" >TO</option>
+              </select>
+            </div>
+          </div>
+          <div class="row {{defineDevice()}} margin-bottom">
+            <a href="" class="bt opt-in"></a>
+            <p> Concordo com os termos deste <a href="#" ng-click="opemModal('regulamento', $event)">Regulamento</a></p>
+          </div>
+          <p><sup>*</sup>Somente usaremos o telefone informado no cadastro  para comunicação com o vencedor da promoção.</p>
+
+          <input type="submit" value="Finalizar" class="bt default {{defineDevice()}}">
+        </form>
+      </div>
+      <!-- form -->
+    <!-- form -->
+    <!-- social-connect -->
+
+  </div>
+  <!-- cadastre -->
+  <!-- share -->
+  <div class="{{defineDevice()}} inner share" ng-show="step == 'share'">
+    <div class="wrap-title {{defineDevice()}}">
+      <p><strong>Parabéns! Agora é pedir ajuda dos seus amigos para votar na sua caneta BIC.</strong></p>
+      <p>Não perca essa chance de ganhar!</p>  
+    </div>
+    <a class="wrap-video" ng-click="clickVideo($event)"></a>
+    <div class="wrap-buttons">
+      <p>Compartilhe com seus amigos</p>
+      <a ng-click="clickShare('facebook')" class="bt facebook connect small">
+        <span class="icon"></span>
+      </a>
+      <a ng-click="clickShare('twitter')" class="bt twitter connect small">
+        <span class="icon"></span>
+      </a>
+      <a ng-click="clickShare('gplus')" class="bt gplus connect small">
+        <span class="icon"></span>
+      </a> 
+    </div>
+    <a class="bt default white large galeria" ng-click="changeRoute('/galeria', $event)">visitar a galeria</a>
+  </div>
+  <!-- share -->
+
+
+
+</div>
+  
+

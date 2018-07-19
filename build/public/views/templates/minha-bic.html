@@ -1,0 +1,52 @@
+
+  <div class="main-background fixed {{defineDevice()}}">
+   <!-- left -->
+  <img src="images/templates/galeria/bg-left-3.png" alt="" class="left-3">
+  <img src="images/templates/galeria/bg-left-2.png" alt="" class="left-2">
+  <img src="images/templates/galeria/bg-left-1.png" alt="" class="left-1">
+  
+  
+  
+  <!-- / -->
+
+  <!-- right -->
+  <img src="images/templates/galeria/bg-right-3.png" alt="" class="right-3">
+  <img src="images/templates/galeria/bg-right-2.png" alt="" class="right-2">
+  <img src="images/templates/galeria/bg-right-1.png" alt="" class="right-1">
+  </div>
+
+  <div class="content fixed {{defineDevice()}}">
+    <div class="custon-pen">
+      <img ng-src="{{pen.tampa.image_vertical_url}}" class="tampa">
+      <img ng-src="{{pen.ponta.image_vertical_url}}" class="ponta">
+      <img ng-src="{{pen.corpo.image_vertical_url}}" class="corpo">
+      <img ng-src="{{pen.tampinha.image_vertical_url}}" class="tampinha">
+    </div>
+   <!-- display-controller -->
+   <div class="wrap-video">
+    <video id="video_conceito" class="video-js internal"
+      preload="auto" width="100%" height="100%"
+      poster="images/templates/customizacao-video/video-fake.jpg"
+      data-setup='{"example_option":true}'>
+     <source src="video/BIC-SE_MSITE.mp4" type='video/mp4' />
+     <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+    </video>
+      <div class="infos">
+        <span class="icon logo"></span>
+        <p class="name">
+          {{pen.name}}
+          <span class="line"></span>
+        </p>
+        <p>Concorra a uma viagem para França e canetas personalizadas.</p>
+        <a ng-click="vote()" class="bt default red">votar</a>
+        <a class="bt large white" ng-href="#/crie-sua-bic" ng-click="changeRoute('/crie-sua-bic', $event)">faça já a sua</a>
+      </div>
+
+      <a class="bt play-video" ng-click="playVideo()">play video</a>
+   </div>
+
+  </div>
+  <div class="bg-white"></div>
+
+  
+  

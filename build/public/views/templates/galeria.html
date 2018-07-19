@@ -1,0 +1,90 @@
+<div class="main-background {{defineDevice()}}">
+  <!-- <img src="images/templates/galeria/bg-left.png" class="left">
+  <img src="images/templates/galeria/bg-right.png" class="right"> -->
+
+  <!-- left -->
+  <img src="images/templates/galeria/bg-left-3.png" alt="" class="left-3">
+  <img src="images/templates/galeria/bg-left-2.png" alt="" class="left-2">
+  <img src="images/templates/galeria/bg-left-1.png" alt="" class="left-1">
+  
+  
+  
+  <!-- / -->
+
+  <!-- right -->
+  <img src="images/templates/galeria/bg-right-3.png" alt="" class="right-3">
+  <img src="images/templates/galeria/bg-right-2.png" alt="" class="right-2">
+  <img src="images/templates/galeria/bg-right-1.png" alt="" class="right-1">
+  
+  
+
+</div> <!-- main-background -->
+
+<div class="content fixed {{defineDevice()}}">
+  <div class="inner">
+
+    <h1>Conheça as canetas BIC <sup>®</sup> que estão participando, escolha sua favorita e vote. </h1>
+
+    <div class="search-bar">
+      <form name="seachFriends" ng-submit="submitForm()" >
+      <a class="icon" ng-click="submitForm()"></a>
+        <input type="text" name="search" id="search" placeholder="Nome do Amigo" ng-minlength="2" ng-model="friend.name">
+      </form>  
+    </div>
+
+    <!-- Galeria Container -->
+    <div class="galeria-container {{defineDevice()}}">
+
+      <button class="left-arrow" ng-show="prevPage" ng-click="changePage('prev')"></button>
+      <button class="right-arrow" ng-show="nextPage" ng-click="changePage('next')"></button>
+      
+      <ul>
+        <!-- template caneta -->
+        <li ng-repeat="pen in pens">
+          <div class="partes">
+            <img ng-src="{{pen.tampa.image_vertical_url}}" class="tampa">
+            <img ng-src="{{pen.ponta.image_vertical_url}}" class="ponta">
+            <img ng-src="{{pen.corpo.image_vertical_url}}" class="corpo">
+            <img ng-src="{{pen.tampinha.image_vertical_url}}" class="tampinha">
+          </div>
+          <div class="box-info">
+            <div class="ponta-balao"></div>
+            <div class="like-header"></div>
+            <div class="infos">
+              <p class="chamado-1">Vote na caneta BIC <sup>®</sup></p>
+              <p class="chamado-2">{{pen.name}}</p>
+            </div>
+            <a ng-click="vote(pen.id)" class="bt large red">Votar</a>
+          </div>
+        </li>
+        <!-- template caneta -->
+
+      </ul>
+      
+    </div>
+  </div>
+</div> <!-- Galeria Container -->
+
+<div class="bg-white"></div>
+
+<!-- feedback -->
+<div class="feedback" ng-show="feedback.isShow">
+    <div class="content">
+        <a class="bt close-small" ng-click="hideFeedback()"></a>
+        <span class="{{feedback.icon}} icon"></span>
+        <!-- <span class="ic-like-large icon"></span> -->
+        <div class="wrap-text" ng-switch on="feedback.type">
+          <div ng-switch-when="search">
+            <p class="title"><span class="line left"></span>Caneta BIC <sup>®</sup> não encontrada!<span class="line right"></span></p>
+            <p><span class="line left"></span>{{feedback.mensage}}<span class="line right"></span></p>
+          </div>
+          <div ng-switch-default >
+            <p class="title"><span class="line left"></span>{{feedback.title}}<span class="line right"></span></p>
+            <p><span class="line left"></span>{{feedback.mensage}}<span class="line right"></span></p>
+          </div>
+            
+        </div>
+
+    </div>
+    <span class="overlay"></span>
+</div>

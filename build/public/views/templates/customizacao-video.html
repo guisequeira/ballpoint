@@ -1,0 +1,48 @@
+<div class="main-background fixed {{defineDevice()}}">
+
+  <!-- left -->
+  <img src="images/templates/customizacao-video/bg-left-1.png" alt="" class="left-1">
+  <img src="images/templates/customizacao-video/bg-left-3.png" alt="" class="left-3">
+  <img src="images/templates/customizacao-video/bg-left-2.png" alt="" class="left-2">
+  <!-- / -->
+
+  <!-- right -->
+  <img src="images/templates/customizacao-video/bg-right-3.png" alt="" class="right-3">
+  <img src="images/templates/customizacao-video/bg-right-2.png" alt="" class="right-2">
+  <img src="images/templates/customizacao-video/bg-right-1.png" alt="" class="right-1">
+  <!-- / -->
+</div>
+
+<div class="content fixed {{defineDevice()}}">
+  <a href="#" class="bt play-video">play video</a>
+  <div class="custon-pen">
+
+    <img ng-src="{{pen.images.tampinha}}" class="tampinha"/>
+    <img ng-src="{{pen.images.corpo}}" alt="" class="corpo">
+    <img ng-src="{{pen.images.ponta}}" alt="" class="ponta">
+    <img ng-src="{{pen.images.tampa}}" alt="" class="tampa">
+
+  </div>
+ <!-- display-controller -->
+ <div class="wrap-video {{defineDevice()}}">
+  <video id="video_conceito" class="video-js internal {{defineDevice()}}"
+    preload="auto" width="100%" height="100%"
+    poster="images/templates/customizacao-video/video-fake.jpg"
+    data-setup='{"example_option":true}'>
+   <source src="video/BIC-SE_MSITE.mp4" type='video/mp4' />
+   <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+  </video>
+    <div class="infos">
+      <span class="icon logo"></span>
+      <p class="name">
+        {{nameUser}}
+        <span class="line"></span>
+      </p>
+
+    </div>
+ </div>
+
+ <a ng-href="#/crie-sua-bic" ng-click="changeRoute('/crie-sua-bic', $event)" class="bt back"></a>
+ <a ng-click="onClickNext($event)" class="bt default large white">PRÓXIMO</a>
+
+</div>

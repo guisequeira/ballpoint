@@ -1,0 +1,116 @@
+
+  <div class="main-background {{defineDevice()}}">
+    <!-- mobile -->
+    <div ng-show="defineDevice() == 'mobile'">
+      <img src="images/templates/premiacao/bg-mobile-left.png" alt="" class="left"> 
+      <img src="images/templates/premiacao/bg-mobile-right.png" alt="" class="right">
+    </div>
+
+    <!-- desktop -->
+    <div ng-hide="defineDevice() == 'mobile'">
+      <!-- <img src="images/templates/premiacao/bg-left.png" alt="" class="left">  -->
+      <!-- <img src="images/templates/premiacao/bg-right.png" alt="" class="right"> -->
+      <img src="images/templates/comoparticipar/bg-right-1.png" alt="" class="left-1">
+      <img src="images/templates/comoparticipar/bg-right-2.png" alt="" class="left-2">
+      <img src="images/templates/comoparticipar/bg-right-3.png" alt="" class="left-3">
+
+      <!-- right -->
+      <img src="images/templates/comoparticipar/bg-right-1.png" alt="" class="right-1">
+      <img src="images/templates/comoparticipar/bg-right-2.png" alt="" class="right-2">
+      <img src="images/templates/comoparticipar/bg-right-3.png" alt="" class="right-3">
+      <!-- / -->
+    </div>
+
+  </div>
+   
+  <div class="content fixed first {{defineDevice()}}">
+    <div class="wrap-title {{defineDevice()}}">
+      <p>As <strong>3 canetas</strong> mais votadas vão ganhar os seguintes prêmios:</p>  
+    </div>
+
+
+    <!-- sidebar -->
+    <div class="sidebar prize {{defineDevice()}}" >
+      <ul class="{{defineDevice()}}">
+        <li ng-class="{active: place == 'first'}" ng-click="toggle('first')" class="{{defineDevice()}}">
+          <span class="ic-number">1</span>
+          <span class="icon ic-circle"></span>
+          <span class="label {{defineDevice()}}">lugar</span>
+        </li>
+        <li ng-class="{active: place == 'second'}" ng-click="toggle('second')" class="{{defineDevice()}}">
+          <span class="ic-number">2</span>
+          <span class="icon ic-circle"></span>
+          
+          <span class="label {{defineDevice()}}">Lugar</span>
+        </li>
+        <li ng-class="{active: place == 'third'}" ng-click="toggle('third')" class="{{defineDevice()}}">
+          <span class="ic-number">3</span>
+          <span class="icon ic-circle"></span>
+          <span class="label {{defineDevice()}}">Lugar</span>
+        </li>
+      </ul>
+    </div>
+    <!-- /sidebar -->
+
+
+    <!-- place first-->
+    <div class="{{defineDevice()}} inner place" ng-show="place == 'first' || mobile">
+      <div class="{{defineDevice()}} column">
+        <div class="{{defineDevice()}} display txt-first" id="txt-first" data-frames="27"></div>  
+        
+        <div class="{{defineDevice()}} wrap-infos">
+          <p class="tit-prize">250 canetas Bic <sup>®</sup></p>
+          <p>Quem tiver a caneta mais votada leva 250 unidades exclusivas, personalizadas com as cores que cadastrou na promoção.</p>
+        </div>
+      </div>
+      <div class="{{defineDevice()}} column middle" ng-hide="defineDevice() == 'mobile'">
+        <span class="icon ic-plus-large-1"></span>
+      </div>
+      <div class="{{defineDevice()}} column right">
+        <span class="blogger intro pc small" ng-hide="defineDevice() == 'mobile'"></span>
+        <span class="blogger intro kefera small" ng-hide="defineDevice() == 'mobile'"></span>
+        <span class="blogger intro cid small" ng-hide="defineDevice() == 'mobile'"></span>
+        <span class="torre-eiffel" data-frames="27" ng-hide="defineDevice() == 'mobile'"></span>
+        <div class="{{defineDevice()}} wrap-infos france">
+          <p class="tit-prize">Viagem para França</p>
+          <p>Uma viagem para conhecer a sede da BiC® na França ao lado de um dos blogueiros mais divertidos do Brasil.</p>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+
+    <!-- place second-->
+    <div class="{{defineDevice()}} inner place second" ng-show="place == 'second' || mobile">
+
+      <div class="{{defineDevice()}} column">
+        <div class="{{defineDevice()}} display txt-second" id="txt-second" data-frames="26">
+        </div>
+        <div class="{{defineDevice()}} wrap-infos">
+          <p class="tit-prize">250 canetas Bic <sup>®</sup></p>
+          <p>O segundo lugar ganha 250 canetas exclusivas, personalizadas com as cores que cadastrou na promoção.</p>
+        </div>
+      </div>
+      
+    </div>
+    <!--  -->
+
+    <!-- place second-->
+    <div class="{{defineDevice()}} inner place third" ng-show="place == 'third' || mobile">
+
+      <div class="{{defineDevice()}} column">
+        <div class="{{defineDevice()}} display txt-third" id="txt-third" data-frames="30">
+         
+          
+        </div>
+        <div class="{{defineDevice()}} wrap-infos">
+          <p class="tit-prize">100 canetas Bic <sup>®</sup></p>
+          <p>O terceiro colocado ganha 100 canetas exclusivas, personalizadas com as cores que cadastrou na promoção.</p>
+        </div>
+      </div>
+      
+    </div>
+    <!--  -->
+    
+    
+    
+  </div>

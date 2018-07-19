@@ -1,0 +1,41 @@
+<div class="wrap-mobile">
+    <span class="icon ic-mobile"></span>
+    <span class="bg"></span>
+    <p>Este site é melhor visualizado na vertical, por favor vire seu Smartphone</p>
+</div>
+
+<div id="feedback">
+    <div class="content {{defineDevice()}}">
+        <a class="bt close-small"></a>
+        <span class="ic-attention-large icon"></span>
+        <div class="wrap-text">
+            <p><span class="line left"></span>Mensagem de Alerta<span class="line right"></span></p>
+        </div>
+
+    </div>
+</div>
+<!-- modal -->
+<div modal ng-show="modalStatus == 'opening'" class="modal {{defineDevice()}}" ></div>
+<!-- loader -->
+<div class="loader" id="loader">
+    <span class="icon ic-loader"></span>
+</div>
+<!-- /loader -->
+<!-- overlay -->
+<span class="overlay" id="overlay"></span>
+<!-- /overlay -->
+
+
+<!--[if lt IE 7]>
+  <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- <li><a ng-href="#/about">About</a></li>
+      <li><a ng-href="#">Contact</a></li> -->
+<div main-header></div>
+
+<div class="main">
+<!-- Add your site or application content here -->
+<section class="section {{ pageClass}} {{defineDevice()}}" ng-view></section>
+
+</div>

@@ -1,0 +1,94 @@
+<div class="main-background {{defineDevice()}}">
+  <!-- mobile -->
+  <div ng-show="defineDevice() == 'mobile'">
+    <img src="images/templates/comoparticipar/bg-mobile-left.png" alt="" class="left"> 
+    <img src="images/templates/comoparticipar/bg-mobile-right.png" alt="" class="right">
+  </div>
+
+  <!-- desktop -->
+  <div ng-hide="defineDevice() == 'mobile'">
+    <!-- left -->
+    <img src="images/templates/comoparticipar/bg-left-1.png" alt="" class="left-1"> 
+    <img src="images/templates/comoparticipar/bg-left-2.png" alt="" class="left-2"> 
+    <img src="images/templates/comoparticipar/bg-left-3.png" alt="" class="left-3"> 
+    <!-- / -->
+    
+    <!-- right -->
+    <img src="images/templates/comoparticipar/bg-right-1.png" alt="" class="right-1">
+    <img src="images/templates/comoparticipar/bg-right-2.png" alt="" class="right-2">
+    <img src="images/templates/comoparticipar/bg-right-3.png" alt="" class="right-3">
+    <!-- / -->
+  </div>
+
+</div>
+ 
+<div class="content fixed {{defineDevice()}}">
+  <p class="title {{defineDevice()}}">Faça uma caneta BIC <sup>®</sup> só sua e vá curtir na França.</p>
+  <p class="title {{defineDevice()}}">Monte uma caneta com a sua cara, escolha quem você quer levar e peça pra galera votar.</p>
+  
+  
+  <div class="inner {{defineDevice()}}" id="container-slide">
+    
+    <span class="icon ic-plus-large-1" ng-hide="defineDevice() == 'mobile'"></span>
+    <span class="icon ic-plus-large-2" ng-hide="defineDevice() == 'mobile'"></span>
+    
+    <article class="box first {{defineDevice()}}">
+      <div class="wrap">
+        <img src="images/templates/comoparticipar/galao.png" alt="" class="galao {{defineDevice()}}"> 
+        <img src="images/templates/comoparticipar/gota.png" alt="" class="gota {{defineDevice()}}"> 
+        <img src="images/templates/comoparticipar/tampa-1.png" alt="" class="tampa one {{defineDevice()}}">
+        <img src="images/templates/comoparticipar/tampa-2.png" alt="" class="tampa two {{defineDevice()}}">
+        <img src="images/templates/comoparticipar/tampa-3.png" alt="" class="tampa three {{defineDevice()}}">  
+      </div>
+      <div class="wrap">
+        <header class="infos left {{defineDevice()}}">
+          <span class="label-circ">1</span>
+          <h2>Crie sua CANETA Bic <sup>®</sup></h2>
+          <p>Faça uma caneta customizada do jeito que você quiser. Acabou aquela história de sumirem com a sua caneta e dizerem que confundiram.</p>
+        </header>
+      </div>
+    </article>
+    <article class="box second {{defineDevice()}}">
+      <span class="blogger intro pc {{defineDevice()}}"></span>
+      <div class="wrap">
+        <header class="infos center {{defineDevice()}}">
+          <span class="label-circ">2</span>
+          <h2>Escolha um amigo</h2>
+          <p>Quem vencer vai viajar muito bem acompanhado. Escolha um dos blogueiros para curtir com você na França like a boss.</p>
+        </header>
+        
+      </div>
+      
+    </article>
+    <article class="box third {{defineDevice()}}">
+      <div class="wrap">
+        <img src="images/templates/comoparticipar/caneta-1.png" alt="" class="caneta-1 {{defineDevice()}}"> 
+        <img src="images/templates/comoparticipar/caneta-2.png" alt="" class="caneta-2 {{defineDevice()}}"> 
+        <img src="images/templates/comoparticipar/like.png" alt="" class="like {{defineDevice()}}"> 
+      </div>
+      <div class="wrap">
+        <header class="infos right {{defineDevice()}}">
+          <span class="label-circ">3</span>
+          <h2>Votação</h2>
+          <p>Customize sua caneta e conquiste votos na nossa página. Qualquer ajuda vale. Parentes, amigos e até quem está passando na sua frente agora. Os projetos mais votados levam prêmios incríveis.</p>
+        </header>
+        
+      </div>
+      
+    </article>
+    <a ng-href="#/crie-sua-bic" class="bt default white" ng-click="changeRoute('/crie-sua-bic', $event)" ng-hide="defineDevice() == 'mobile'">Faça já a sua</a>
+  </div>
+  
+</div>
+<ul class="subnav" ng-show="defineDevice() == 'mobile'">
+  <li>
+    <a ng-click="clickSubNav('0')" class="active"></a>
+  </li>
+  <li>
+    <a ng-click="clickSubNav('1')"></a>
+  </li>
+  <li>
+    <a ng-click="clickSubNav('2')"></a>
+  </li>
+</ul>
+<a ng-href="#/crie-sua-bic" class="bt default white" ng-click="changeRoute('/crie-sua-bic', $event)" ng-show="defineDevice() == 'mobile'">Faça já a sua</a>

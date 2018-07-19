@@ -1,0 +1,84 @@
+<header class="main-header container {{defineDevice()}}" ng-class="{interna: !isHome, opem: navMainIsOpem} " ng-show="app_section != 'video-intro'">
+  <h1 class="icon logo-header">
+    <span class="icon letter-b"></span>
+    <span class="icon letter-i"></span>
+    <span class="icon letter-c"></span>
+    <span class="icon letter-s"></span>
+    <span class="icon letter-e"></span>
+  </h1>
+
+  <nav class="nav-main" ng-class="{opem: navMainIsOpem}">
+    <a ng-click="toggleNav('main')" class="bt-menu icon"></a>
+    <span class="breadcrumb {{pageClass}}"></span>
+    <ul>  
+      <li class="home">
+        <a ng-href="#/home" ng-click="changeRoute('/home', $event)">
+          <span class="icon"></span>
+          <span class="line"></span>
+          Home
+        </a>
+      </li>
+      <li class="comoparticipar">
+        <a ng-href="#/comoparticipar" ng-click="changeRoute('/comoparticipar', $event)">
+          <span class="icon"></span>
+          <span class="line"></span>
+          Como Participar
+        </a>
+      </li>
+      <li class="bicse">
+        <a ng-href="#/crie-sua-bic" ng-click="changeRoute('/crie-sua-bic', $event)">
+          <span class="icon"></span>
+          <span class="line"></span>
+          Bic-se
+        </a>
+      </li>
+      <li class="premios">
+        <a ng-href="#/premios" ng-click="changeRoute('/premios', $event)">
+          <span class="icon"></span>
+          <span class="line"></span>
+          Prêmios
+        </a>
+      </li>
+      <li class="galeria">
+        <a ng-href="#/galeria" ng-click="changeRoute('/galeria', $event)">
+          <span class="icon"></span>
+          <span class="line"></span>
+          Galeria
+        </a>
+      </li>
+      <li class="regulamento">
+        <a ng-href="#/regulamento" ng-click="opemModal('regulamento', $event)">
+          <span class="icon"></span>
+          <span class="line"></span>
+          Regulamento
+        </a>
+      </li>
+      <li class="assistaaovideo">
+        <a ng-href="#/video" ng-click="changeRoute('/', $event)">
+          <span class="icon"></span>
+          <span class="line"></span>
+          Assista ao vídeo
+        </a>
+      </li>
+      <span class="ic-logo-bic-cristal icon"></span>
+    </ul>
+  </nav>
+
+  <nav class="nav-right" ng-class="{opem: navSocialIsOpem}">
+    <a ng-click="toggleNav('social')" class="bt-social icon"></a>
+    <ul>
+      <li><a href="https://www.facebook.com/BICbr" target="_blank" class="bt facebook"></a></li>
+      <li><a href="https://twitter.com/BIC_Brasil" target="_blank" class="bt twitter"></a></li>
+      <!-- <li class="no-border"><a href="#" class="bt gplus"></a></li> -->
+      <li class="youtube"><a href="https://www.youtube.com/channel/UC-qrKHNv-3epxvDzDnhKjVg" target="_blank" class="bt youtube"></a></li>
+      <li class="no-border"><a href="http://www.bic.com.br" target="_blank"><span class="bic-cristal"></span></a></li>
+    </ul>
+
+    
+    
+    
+    
+    
+  </nav>
+  <span class="overlay" ng-class="{active: navMainIsOpem || navSocialIsOpem}"></span>
+</header>

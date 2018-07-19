@@ -1,0 +1,184 @@
+<div class="main-background {{defineDevice()}}">
+  
+  <div ng-show="defineDevice() == 'mobile'">
+    <img src="images/templates/customizacao/bg-mobile-left.png" alt="" class="left">
+  </div>
+  <!-- desktop -->
+  <div ng-hide="defineDevice() == 'mobile'">
+      <!-- left -->
+    <img src="images/templates/customizacao/bg-left-1.png" alt="" class="left-1">
+    <img src="images/templates/customizacao/bg-left-2.png" alt="" class="left-2">
+    <img src="images/templates/customizacao/bg-left-3.png" alt="" class="left-3">
+    <!-- / -->
+
+    <!-- right -->
+    <img src="images/templates/customizacao/bg-right-1.png" alt="" class="right-1">
+    <img src="images/templates/customizacao/bg-right-2.png" alt="" class="right-2">
+    <img src="images/templates/customizacao/bg-right-3.png" alt="" class="right-3">
+  </div>
+</div>
+
+<div class="content fixed {{defineDevice()}}">
+  <h1 class="{{defineDevice()}}">Siga os passos e customize sua caneta do jeito que você quiser. Depois é só pedir pra galera votar e torcer para seu projeto vencer.</h1>
+
+  <!-- display-caneta -->
+  <div class="display-caneta {{defineDevice()}}">
+    <div class="toolTip {{defineDevice()}}">
+      <input type="text" placeholder="Escreva seu nome" maxlength="20" ng-model="nameUser" ng-change="changeNameUser()">
+      <label> (Máximo 20 caracteres)</label>
+      <span class="icon ic-arrow-down"></span>
+    </div>
+    <div class="pen {{defineDevice()}}">
+
+      <label ng-show="textInPen" ng-style="myText">{{namePen}}</label>
+      <!-- <img src="images/pen/default/tampinha.png" alt="" > -->
+      <img ng-src="{{pen.images.tampinha}}" class="tampinha"/>
+      <img ng-src="{{pen.images.corpo}}" alt="" class="corpo">
+      <img ng-src="{{pen.images.ponta}}" alt="" class="ponta">
+      <img ng-src="{{pen.images.tampa}}" alt="" class="tampa">
+      <span class="shadow"></span>
+      <span class="shine {{defineDevice()}}"></span>
+    </div>
+
+    <div class="controllers-pen {{defineDevice()}}">
+
+      <a ng-repeat="part in parts" ng-class="controllerSelected(part.slug)" class="bt-custon-pen {{part.slug}} {{defineDevice()}}" ng-click="clickPart(part)">
+        <span class="icon ic-arrow-up"></span>
+        <span class="background"></span>
+        <span class="outline" ng-style="myBackground(part.slug)" ></span>
+        <span class="border"></span>
+        <span class="outline-stroke"></span>
+        <span class="outline-bg" ng-style="myBackground(part.slug)" ></span>
+        <span class="background-colors"></span>
+        <span class="icon" ng-class="{icbaldinho: part.slug != 'texto', ictxt: part.slug == 'texto'}"></span>
+      </a>
+
+    </div>
+
+  </div>
+  <!-- display-caneta -->
+
+  <!-- display-controller -->
+  <div class="container display-controllers {{defineDevice()}}" ng-class="{show: isShowController}">
+    <a class="bt bt-close-grey" ng-click="hideControllers()" ng-hide="defineDevice() == 'desktop'"></a>
+    <div class="wrap-controller animate-switch-container {{defineDevice()}}" ng-switch on="controller_type">
+      <!-- colors tampa -->
+      <div class="controller colors animate-switch {{defineDevice()}}" ng-switch-default>
+        <a ng-repeat="colors in cores" class="bt-select-color" ng-class="{selected:  pen.colors[controller_type] == colors.hexa }" ng-click="changePen(colors)">
+          <span class="outline"></span>
+          <span class="border"></span>
+          <span class="background" ng-style="{'background-color':'{{ colors.hexa }}'}"></span>
+          <span class="icon ic-check"></span>
+        </a>
+      </div>
+      <!-- colors tampa -->
+
+      <!-- colors corpo -->
+      <div class="controller colors animate-switch {{defineDevice()}}" ng-switch-when="corpo">
+        <a ng-repeat="colors in cores" class="bt-select-color" ng-class="{selected:  pen.colors[controller_type] == colors.hexa }" ng-click="changePen(colors)">
+          <span class="outline"></span>
+          <span class="border"></span>
+          <span class="background" ng-style="{'background-color':'{{ colors.hexa }}'}"></span>
+          <span class="icon ic-check"></span>
+        </a>
+      </div>
+      <!-- colors corpo -->
+
+      <!-- colors tampinha -->
+      <div class="controller colors animate-switch {{defineDevice()}}" ng-switch-when="tampinha">
+        <a ng-repeat="colors in cores" class="bt-select-color" ng-class="{selected:  pen.colors[controller_type] == colors.hexa }" ng-click="changePen(colors)">
+          <span class="outline"></span>
+          <span class="border"></span>
+          <span class="background" ng-style="{'background-color':'{{ colors.hexa }}'}"></span>
+          <span class="icon ic-check"></span>
+        </a>
+      </div>
+      <!-- colors tampinha -->
+
+      <!-- pointer -->
+      <div class="controller pointer animate-switch {{defineDevice()}}" ng-switch-when="ponta">
+        
+        <div class="column-1 {{defineDevice()}}">
+          <div class="display-circle">
+            <span class="icon ic-pointer"></span>
+            <span class="arrow ic-arrow-up-circle"></span>
+            <span class="background"></span>
+          </div>
+        </div>
+
+        <div class="column-2 {{defineDevice()}}">
+          <p>Escolha a ponta da sua caneta Bic <sup>®</sup> </p>
+          <div class="drop-down" ng-class="{opem: isOpem}" ng-mouseleave="closeDropDown(null)">
+            <a class="label" ng-click="opemDropDown()" >
+              <span><strong>{{labelDropDown}} - {{labelMM}} </strong>mm</span>
+              <span class="ic-arrow-down"></span>
+            </a>
+            <ul>
+
+              <li ng-repeat="part in subparts">
+                <a ng-click="closeDropDown(part)">
+                  <span class="left"><strong>{{part.name.split(' ')[0]}}</strong></span>
+                  <span class="right"><strong>{{part.name.split(' ')[1]}} </strong>mm</span>
+                </a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+
+        <div class="column-3 {{defineDevice()}}">
+          <a ng-repeat="colors in cores" class="bt-select-color" ng-class="{selected:  pen.colors[controller_type] == colors.hexa }" ng-click="changePen(colors)">
+            <span class="outline"></span>
+            <span class="border"></span>
+            <span class="background" ng-style="{'background-color':'{{ colors.hexa }}'}"></span>
+            <span class="icon ic-check"></span>
+          </a>
+        </div>
+
+      </div>
+      <!-- pointer -->
+
+      <div class="controller text animate-switch {{defineDevice()}}" ng-switch-when="texto">
+        <div class="column-1 {{defineDevice()}}">
+          <div class="display-circle">
+            <span class="icon ic-text"></span>
+            <span class="arrow ic-arrow-up-circle"></span>
+            <span class="background"></span>
+          </div>
+        </div>
+        <div class="column-2 {{defineDevice()}}">
+          <p>Dê um nome para sua Bic <sup>®</sup></p>
+          <!-- <input type="text" placeholder="Escreva seu nome" maxlength="20" ng-model="nameUser" ng-change="changeNameUser()"> -->
+          <input type="text" placeholder="Máximo 32 caracteres..." maxlength="32" ng-model="imputText" ng-change="changeInput(this.imputText)">
+        </div>
+
+        <div class="column-3 {{defineDevice()}} text">
+          <a ng-repeat="colors in cores" class="bt-select-color" ng-class="{selected:  pen.colors[controller_type] == colors.hexa }" ng-click="changePen(colors)">
+            <span class="outline"></span>
+            <span class="border"></span>
+            <span class="background" ng-style="{'background-color':'{{ colors.hexa }}'}"></span>
+            <span class="icon ic-check"></span>
+          </a>
+        </div>
+        <div class="column-4 {{defineDevice()}}">
+          <a class="not-text" ng-click="toggleText()" ng-class="{active: !textInPen}">
+            <span class="optin">
+              <span class="box"></span>
+            </span>
+            Não quero texto na minha Bic <sup>®</sup>
+          </a>
+
+        </div>
+
+      </div>
+    </div>
+      <!-- text -->
+
+
+    <!-- <a ng-href="#/video-bic" ng-click="changeRoute('/video-bic', $event)" class="bt large white">Próximo</a> -->
+    <div class="bg-barra {{defineDevice()}}"></div>
+  </div>
+  <a ng-href="#/video-bic" ng-click="changeRoute('/video-bic', $event)" class="bt large white {{defineDevice()}}" ng-show="verifyNext()">Próximo</a>
+  <!-- display-controller -->
+
+</div>
